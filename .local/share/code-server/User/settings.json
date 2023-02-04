@@ -1,0 +1,7 @@
+{
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "workbench.colorTheme": "Monokai",
+    "files.hotExit": "off"
+}
