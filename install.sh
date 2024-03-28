@@ -22,8 +22,10 @@ fi
 
 # Install starship
 if ! starship="$(command -v starship)"; then
-  curl -sS https://starship.rs/install.sh | sh
+  curl -sS https://starship.rs/install.sh | sh -s -- -y
 fi
+
+eval "$(starship init bash)"
 
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
