@@ -28,3 +28,12 @@ sourceDir: "{{ .chezmoi.sourceDir }}"
 data:
   name: "{{ $name }}"
   email: "{{ $email }}"
+
+{{- /* Check if AGE_SECRET_KEY is set, fail gracefully if not */ -}}
+{{- if env "AGE_SECRET_KEY" -}}
+encryption:
+  age:
+    identity: "{{ env "AGE_SECRET_KEY" }}"
+    recipients:
+      - "{{ env "AGE_RECIPIENTS" }}"
+{{- end -}}

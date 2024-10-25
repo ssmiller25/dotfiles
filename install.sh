@@ -28,3 +28,17 @@ set -- init --apply --source="${script_dir}"
 echo "Running 'chezmoi $*'" >&2
 # exec: replace current process with chezmoi
 exec "$chezmoi" "$@"
+
+# Add environment variable for age secret key
+if [ -z "${AGE_SECRET_KEY:-}" ]; then
+  echo "AGE_SECRET_KEY is not set. Please set it before running the script."
+else
+  export AGE_SECRET_KEY
+fi
+
+# Add environment variable for age recipients
+if [ -z "${AGE_RECIPIENTS:-}" ]; then
+  echo "AGE_RECIPIENTS is not set. Please set it before running the script."
+else
+  export AGE_RECIPIENTS
+fi
